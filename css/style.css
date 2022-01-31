@@ -1,0 +1,699 @@
+/* ========== Google Fonts (шрифт) =========== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Rubik:wght@300;400;500;600&display=swap");
+
+/* ========== CSS Variables (переменные) =========== */
+:root {
+  --primary-color: #ff5151;
+  --black-color: #0b132a;
+  --white-color: #fafeff;
+  --default-color: #4f5665;
+  --orange-color: #ff5e3a;
+  --yellow-color: #fea250;
+  --yellow-color1: #ffcf53;
+  --bg-color: #fff7ee;
+  --grey-color: #bbbbbb;
+  --grey-color1: #636363;
+  --grey-color2: #ebeff1;
+  --box-shadow: 0 5px 15px rgba(255, 81, 81, 0.2);
+  --box-shadow1: 0 5px 15px rgba(97, 81, 81, 0.2);
+}
+
+/* ========== CSS main (основные) =========== */
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--default-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--black-color);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+
+section {
+  padding: 10rem 0 5rem;
+  margin-bottom: 5rem;
+  overflow: hidden;
+}
+
+p {
+  line-height: 3rem;
+}
+
+/* ========== Custom Classes (пользовательские настройки) =========== */
+.container{
+  max-width: 1500px;
+  width: 100%;
+  padding: 0 2rem;
+  margin: auto;
+}
+
+@media (min-width:1500px) {
+  .container{
+    max-width: 135rem;
+  }
+}
+
+.d-flex{
+  display: flex;
+  align-items: center;
+}
+/* ========== Header =========== */
+.header{
+  min-height: 90vh;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar{
+  padding: 2rem 0;
+  background-color: var(--white-color);
+}
+
+.navbar > .row{
+  justify-content: space-between;
+}
+
+.navbar .nav-list{
+  justify-content: space-around;
+}
+
+.navbar .nav-list a{
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  padding: 1rem;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.navbar .nav-list .login-link{
+  display: none;
+}
+
+.navbar .nav-list a:hover{
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.navbar .nav-list a:not(:last-child){
+  margin-right: 0.5rem;
+}
+
+.navbar .search-icon,
+.navbar .cart-icon{
+  font-size: 2.2rem;
+  margin-right: 1.5rem;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.navbar .cart-icon{
+  position: relative;
+}
+
+.navbar .cart-icon span{
+  position: absolute;
+  width: 0.9rem;
+  height: 0.9rem;
+  top: -0.1rem;
+  right: -0.2rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.btn{
+  display: inline-flex;
+  color: var(--white-color);
+  background: var(--primary-color);
+  padding: 1.2rem 3rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.navbar .btn{
+  margin-left: 1rem;
+}
+
+.hamburger{
+  font-size: 2.5rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 0.3rem;
+  padding: 0.5rem .7rem;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-list .close{
+  display: none;
+}
+
+/* адобптация и выпадающее меню */ 
+@media (max-width: 768px) {
+  .navbar .side-icons{
+    display: none;
+  }
+  .navbar .nav-list{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    max-width: 35rem;
+    height: 80%;
+    background-color: var(--white-color);
+    z-index: 999;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3rem 2rem;
+    transition: left 300ms linear;
+  }
+
+  .hamburger{
+    display: flex;
+  }
+
+  .nav-list a{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  .navbar .nav-list .login-link{
+    display: block;
+  }
+
+  .navbar .nav-list a:not(:last-child){
+    margin: 0;
+  }
+
+  .nav-list .close{
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem .7rem;
+    justify-content: center;
+  }
+
+  .nav-list.show{
+    left: 0;
+  }
+
+  .navbar .logo img {
+    width: 12rem;
+  }
+}
+/* ========== Home =========== */
+.header .home{
+  height: calc(90vh - 8.1rem);
+}
+
+.header .home .row{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.header .home .row .person{
+  position: absolute;
+  right: -6rem;
+  bottom: -1%;
+  /* height: 70rem; */
+  width: 85rem;
+}
+
+.header .home .row .contenet > span {
+  display: block;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.header .home .row .contenet h1{
+  font-size: 6rem;
+  margin: 0 0 2rem 0;
+}
+
+.header .home .row .contenet h1 span{
+  color: var(--primary-color);
+}
+
+.header .home .row .contenet p{
+  width: 80%;
+}
+
+.header .home .row .contenet .buttons{
+  margin-top: 2.5rem;
+}
+
+.header .home .row .contenet .buy-btn{
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px -2px var(--primary-color);
+  padding: 1.2rem 2.5rem;
+}
+
+.header .home .row .contenet .watch-btn {
+  background-color: inherit;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  margin-left: 2rem;
+  padding: 0.9rem 1rem;
+}
+
+.header .home .row .contenet .watch-btn img{
+  width: 2rem;
+  margin: 0 .5rem;
+}
+
+@media (max-width: 1500px){
+  .header .home .row .person{
+    right: -6rem;
+    bottom: -1%;
+    height: 50rem;
+    width: 70rem;
+  }
+
+  .header .home .row .contenet h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .header .home .row .contenet > span{
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 900px){
+  .header .home .row .person{
+    right: 0;
+    bottom: -1%;
+    height: 40rem;
+    width: 50rem;
+  }
+
+  .header .home .row .contenet h1{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px){
+  .header{
+    height: 100vh;
+  }
+
+  .header .home{
+    height: calc(100vh - 8.9rem);
+  }
+
+  .header .home .row{
+    display: block;
+  }
+
+  .header .home .row .person{
+    width: 45rem;
+    height: 35rem;
+  }
+}
+
+@media (max-width: 567px){
+  .header .home .row .person{
+    right: -2rem;
+  }
+
+  .header .home .row .contenet{
+    margin-top: 2.5rem;
+  }
+
+  .header .home .row .contenet h1{
+    font-size: 2.5rem;
+  }
+
+  .header .home .row .contenet h1 br{
+    display: none;
+  }
+
+  .header .home .row .contenet p{
+    display: none;
+  }
+
+  .header .home .row .contenet .buttons{
+    margin-top: 1rem;
+  }
+
+  .btn{
+    font-size: 1.4rem;
+  }
+
+  .navbar .nav-list{
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+
+/* ========== Shapes (фигурки в hero) =========== */
+.triangle{
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 20px solid var(--yellow-color1);
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 14rem;
+  right: 50%;
+  transform: rotate(50deg);
+}
+
+.rectangle{
+  height: 15px;
+  width: 15px;
+  position: absolute;
+}
+
+.rectangle1{
+  transform: rotate(70deg);
+  background-color: var(--primary-color);
+  right: 55%;
+  top: 55rem;
+}
+.rectangle2{
+  transform: rotate(70deg);
+  background-color: #6975e3;
+  right: 20%;
+  top: 15rem;
+}
+
+.circle{
+  height: 10px;
+  width: 10px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 40rem;
+}
+
+.circle1{
+  right: 52%;
+}
+.circle2{
+  right: 10%;
+}
+@media (max-width: 1500px) {
+  .circle2{
+    right: 3%;
+  } 
+}
+@media (max-width: 1200px) {
+  .circle1{
+    right: 50%;
+  }
+  .circle2{
+    right: 8%;
+  } 
+}
+@media (max-width: 1050px) {
+  .circle1{
+    right: 55%;
+  }
+  .circle2{
+    right: 6%;
+  } 
+}
+@media (max-width: 900px) {
+  .circle1, .circle2,
+  .rectangle1, .rectangle2, 
+  .triangle{
+    display: none;
+  }
+}
+
+/* ========== Video =========== */
+.wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10000;
+  transition: .5s;
+  transform: scale(0);
+  opacity: 0;
+  visibility: visible;
+}
+
+.header .wrapper.active {
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.header .wrapper video {
+  width: 70%;
+  max-width: 135rem;
+}
+
+.header .wrapper .video-control {
+  justify-content: center;
+  border: 2px solid var(--white-color);
+  border-radius: 50%;
+  color: var(--white-color);
+  font-size: 4rem;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto;
+  cursor: pointer;
+  position: absolute;
+}
+
+.header .wrapper .close-video {
+  position: absolute;
+  top: 7rem;
+  right: 7rem;
+  color: var(--primary-color);
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .header .wrapper video {
+    width: 90%;
+    max-width: 135rem;
+  }
+}
+
+@media (max-width: 567px) {
+  .header .wrapper .video-control {
+    font-size: 2.5rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .header .wrapper .close-video {
+    font-size: 2.5rem;
+    top: 10rem;
+    right: 3rem;
+  }
+}
+
+/* ========== SignIn Form (форма входа) =========== */
+.form-wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10000;
+  transition: .5s;
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form-wrapper.active{
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.form-wrapper form{
+  background-color: var(--white-color);
+  border:1px solid var(--grey-color);
+  max-width: 50rem;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  border-radius: .5rem;
+  margin: 2rem;
+}
+
+.form-wrapper form h2{
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.form-wrapper form .control{
+  margin-bottom: 2rem;
+}
+
+.form-wrapper form label{
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form-wrapper form input{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  display: block;
+  border: 1px solid var(--grey-color);
+  padding: 1.3rem 0;
+  text-indent: 1rem;
+  border-radius: 0.5rem;
+  width: 100%; 
+}
+
+.form-wrapper form .checkbox{
+  margin-bottom: 2rem;
+}
+
+.form-wrapper form .checkbox input{
+  width: auto;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.form-wrapper form button{
+  display: block;
+  width: 100%;
+  padding: 1.3rem 0;
+  font-size: 1.8rem;
+  cursor: pointer; 
+}
+
+.form-wrapper form .links{
+  margin-top: 2rem;
+}
+
+.form-wrapper form .links span{
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.form-wrapper form .links span a{
+  color: var(--primary-color);
+}
+
+.form-wrapper form .links span a:hover{
+  text-decoration: underline;
+}
+
+.form-wrapper .close-form{
+  position: absolute;
+  top: 3rem;
+  right: 4rem;
+  color:  var(--default-color);
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+/* адоптация */
+@media (max-width: 567px) {
+  .form-wrapper .close-form{
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+  }
+
+  .form-wrapper form{
+    margin: 0.5rem;
+  }
+}
+
+
+/* ========== Dishes list (список блюд) =========== */
+.dishes .title{
+  margin-bottom: 3rem;
+}
+
+.dishes .title span{
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.dishes .title h2{
+  font-size: 4.5rem;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.dishes .title h2::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  width: 10rem;
+  height: 5px;
+  
+}
+/* ========== Buying Procedure (порядок покупок) =========== */
+
+/* ========== Testimonials section (Раздел отзывов) =========== */
+
+/* ========== Contact Section =========== */
+
+/* ========== Articles section (Раздел статей) =========== */
+
+/* ========== Footer =========== */
